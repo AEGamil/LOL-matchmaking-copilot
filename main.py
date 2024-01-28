@@ -4,8 +4,7 @@ import time
 res = req(type='GET',link='/lol-summoner/v1/current-summoner')
 sname = res.json().get('displayName','Summoner')
 
-
-print(f'Hi{PURPLE.format(sname)} i hope you have a nice game without trollers ;)')
+print(f'Hi{PURPLE.format(sname)} i hope you have a nice game with no trollers ;)')
 ban_input = input(f'\nEnter the name of the champion/s you want to{RED.format("ban")} (leave a hyphen "-" between them):\n')
 banList = validate(inputParser(ban_input))
 pick_input = input(f'\n\nEnter the name of the champion/s you want to{GREEN.format("pick")} (leave a hyphen "-" between them):\n')
@@ -14,11 +13,10 @@ print(RED.format('Your ban'),f'list consists of {len(banList)} : ',RED.format(ba
 print(GREEN.format('Your pick') ,f'list consists of {len(pickList)} : ',GREEN.format(pickList),end='\n')
 print('\n\nHere we gooooooooo...')
 
-# sys.exit()
 banLock,pickLock = None, None
 cellId = None
-while True:
 
+while True:
 # updating the session so we can keep track of the games phase
     response = req(type='GET',link='/lol-gameflow/v1/gameflow-phase')
     status = response.json()

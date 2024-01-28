@@ -1,23 +1,13 @@
-
-# pick
-# ban
-# extractid
-# champ2idmap : get the dict out of the file
 import requests
 import subprocess
 import sys
 import urllib3
 
-COLORS={
-    'red':"\033[91m {}\033[00m",
-    'green':"\033[92m {}\033[00m",
-    "yellow":"\033[93m {}\033[00m",
-    "purple":"\033[94m {}\033[00m" 
-}
 RED = "\033[91m {}\033[00m"
 GREEN = "\033[92m {}\033[00m"
 YELLOW = "\033[93m {}\033[00m"
 PURPLE = "\033[95m {}\033[00m"
+
 
 def champ2idmap() -> dict:
     champ2id = {}
@@ -81,6 +71,7 @@ def select(actorId:int,champ:str):
     print(f'u selected {champ}')
     res = req(type='PATCH',link=f'/lol-champ-select/v1/session/actions/{actorId}',data={'championId': champId})
 
+
 # pick and ban got the same api endpoint so this works for the ban too
 def pick(actorId:int,pick_list:list) -> bool:
     if not len(pick_list) : 
@@ -99,7 +90,6 @@ def pick(actorId:int,pick_list:list) -> bool:
     return False
     
 
-
 def validate(pick_list:list) -> list:
     valid,nonvalid = [] , []
     for selection in pick_list :
@@ -111,9 +101,6 @@ def validate(pick_list:list) -> list:
     if len(nonvalid) > 0:
         print(YELLOW.format('ALERT:'),nonvalid,'isnt available')    
     return valid
-
-
-
 
 
 # assuming that the input is splitted by hyphens
