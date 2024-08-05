@@ -15,6 +15,7 @@ python -u main.py
 
 ### TODO
 - don't ban a champ if a teammate selected it
+- ban and pick according to the role (i don't wanna get an autofilled yasou supp)
 - choosing the rune page for every champ the user picks (rune pages that the user have already set up on his account)
 - choosing the spells for every champ too
 - a notification sent to the mobile when the match starts (ik this is too much :joy:)
