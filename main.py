@@ -20,12 +20,10 @@ while True:
 # updating the session so we can keep track of the games phase
     response = req(type='GET',link='/lol-gameflow/v1/gameflow-phase')
     status = response.json()
-    # print(status)
     
 # while the matchmaking phase to auto press ready
     if status == 'ReadyCheck':
         response = req(type='POST',link='/lol-matchmaking/v1/ready-check/accept')
-        # response =  requests.post(url=f'https://127.0.0.1:{port}/lol-matchmaking/v1/ready-check/accept',auth=auth,data={},verify=False)
         print(f'accept:{response.status_code}')
         banId,pickId,cellId,banLock,pickLock = None, None, None, None, None
         # time.sleep(6)
