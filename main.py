@@ -41,13 +41,13 @@ while True:
         if champ_select_props.get('actions')[0][banIndex].get('isInProgress') and len(banList) and not banLock:
             # ban a champ
             print('u r in ban phase')
-            banLock = pick(actorId=banId,pick_list=banList)
+            banLock = lock(actorId=banId,pick_list=banList)
             if banLock:
                 select(actorId=pickId,champ=pickList[0])
         elif champ_select_props.get('actions')[pickIndex[0]][pickIndex[1]].get('isInProgress') and len(pickList) and not pickLock:
             # pick a champ
             print('u r in pick phase')
-            pickLock = pick(actorId=pickId,pick_list=pickList)
+            pickLock = lock(actorId=pickId,pick_list=pickList)
             print()
     elif status == 'InProgress':
         sys.exit()

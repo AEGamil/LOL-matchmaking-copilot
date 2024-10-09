@@ -70,7 +70,7 @@ def select(actorId:int,champ:str):
 
 
 # pick and ban got the same api endpoint so this works for the ban too
-def pick(actorId:int,pick_list:list) -> bool:
+def lock(actorId:int,pick_list:list) -> bool:
     if len(pick_list) < 1: 
         # dont run the function if the list is empty as its pointless anyway (this will activate the lock of ban or pick)
         return True
